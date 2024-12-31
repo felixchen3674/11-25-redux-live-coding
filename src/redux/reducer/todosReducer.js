@@ -1,4 +1,10 @@
-const initialState = [];
+const initialState = [
+  {
+    id: 1,
+    task: "this is the first todo",
+    completed: false,
+  },
+];
 
 export default function todosReducer(state = initialState, action) {
   switch (action.type) {

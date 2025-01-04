@@ -26,6 +26,16 @@ export default function todosReducer(state = initialState, action) {
     case "TODO_ADDED":
       return [...state, action.payload];
 
+    case "TODO_DELETE":
+      return state.filter((todo) => todo.id !== action.payload);
+
+    case "TODO_CHECKED":
+      return state.map((todo) =>
+        todo.id === action.payload
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      );
+
     default:
       return state;
   }
@@ -33,4 +43,10 @@ export default function todosReducer(state = initialState, action) {
 
 export const addTodo = (payload) => {
   return { type: "TODO_ADDED", payload };
+};
+export const deleteTodo = (id) => {
+  return { type: "TODO_DELETE", payload: id };
+};
+export const checkedTodo = (id) => {
+  return { type: "TODO_CHECKED", payload: id };
 };

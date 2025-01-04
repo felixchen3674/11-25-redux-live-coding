@@ -35,7 +35,14 @@ export default function todosReducer(state = initialState, action) {
           ? { ...todo, completed: !todo.completed }
           : todo
       );
+    case "TODO_CHECKED_REMOVE" : 
+        
+        // console.log("@" ,  state.filter((todo) => !todo.completed))
+        return  state.filter((todo) => !todo.completed);
+   
 
+      
+        
     default:
       return state;
   }
@@ -50,3 +57,6 @@ export const deleteTodo = (id) => {
 export const checkedTodo = (id) => {
   return { type: "TODO_CHECKED", payload: id };
 };
+export const removeCheckedTodo = (payload) => {
+  return {type: "TODO_CHECKED_REMOVE", payload}
+}

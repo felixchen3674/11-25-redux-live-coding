@@ -1,6 +1,7 @@
 import "./App.css";
 import Counter from "./components/Counter";
 import TodoList from "./components/todoList/TodoList";
+import Footer  from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1>Redux Live Coding</h1>
       <Counter />
       <TodoList />
+      <Footer />
     </div>
   );
 }
